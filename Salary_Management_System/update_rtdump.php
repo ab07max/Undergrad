@@ -1,0 +1,33 @@
+<?php
+	include('configuration.php');
+	session_start();
+	$year=date("Y");
+	$m=date('F');
+	$month=strtolower($m);
+	$fid=$_SESSION['fid'];
+	$payband=$_SESSION['payband'];
+	$agp=$_SESSION['agp'];
+	$da=$_SESSION['da'];
+	$hra=$_SESSION['hra'];
+	$spay=$_SESSION['spay'];
+	$ppay=$_SESSION['ppay'];
+	$gross=$_SESSION['gross'];
+	$epf=$_SESSION['epf'];
+	$gis=$_SESSION['gis'];
+	$lic=$_SESSION['lic'];
+	$transport=$_SESSION['transport'];
+	$professional=$_SESSION['professional'];
+	$income=$_SESSION['income'];
+	$medical=$_SESSION['medical'];
+	$deductions=$_SESSION['deductions'];
+	$dept=$_SESSION['dept'];
+	$acc=$_SESSION['acc'];
+	$net=$gross-$deductions;
+	$ear="INSERT INTO `earnings_t`(`sno`, `fid`, `year`, `month`, `payband`, `agp`, `da`, `hra`, `spay`, `ppay`, `gross`) VALUES ('','$fid','$year','$month','$payband','$agp','$da','$hra','$spay','$ppay','$gross')";
+	$earq=mysqli_query($con,$ear);
+	$ded="INSERT INTO `deductions_t`(`sno`, `fid`, `year`, `month`, `epf`, `gis`, `lic`, `transportcharges`, `professionaltax`, `incometax`, `medicalinsurance`, `deductions`) VALUES ('','$fid','$year','$month','$epf','$gis','$lic','$transport','$professional','$income','$medical','$deductions')";
+	$dedq=mysqli_query($con,$ded);
+	$sal="INSERT INTO `salary`(`sno`, `fid`, `year`, `month`, `department`, `type`, `stream`, `account`, `grosspay`, `deductions`, `netpay`) VALUES ('','$fid','$year','$month','$dept','Regular','teaching','$acc','$gross','$deductions','$net')";
+	$salq=mysqli_query($con,$sal);
+	header("location:homepage.php");
+?>

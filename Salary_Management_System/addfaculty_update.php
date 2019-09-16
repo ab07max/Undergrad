@@ -1,0 +1,19 @@
+<?php
+	include('configuration.php');
+	session_start();
+	$fid=$_SESSION['fid'];
+	$name=$_SESSION['name'];
+	$comment=$_SESSION['comment'];
+	$department=$_SESSION['dept'];
+	$type=$_SESSION['type'];
+	$stream=$_SESSION['stream'];
+	$designation=$_SESSION['des'];
+	$account=$_SESSION['acc'];
+	$pan=$_SESSION['pan'];
+	$dob=$_SESSION['dob'];
+	$doj=$_SESSION['doj'];
+	$adhar=$_SESSION['adhar'];
+	$sql="INSERT INTO `details`(`fid`, `name`, `comment`, `department`, `designation`, `type`, `stream`, `account`, `pan`, `dob`, `doj`, `adhar`) VALUES ('$fid','$name','$comment','$department','$designation','$type','$stream','$account','$pan','$dob','$doj','$adhar')";
+	$query=mysqli_query($con,$sql);
+	header("location:homepage.php");
+?>

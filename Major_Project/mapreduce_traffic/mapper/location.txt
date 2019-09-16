@@ -1,0 +1,10 @@
+ Reducer1     | 17.4293823 | 78.4507862 | panjagutta
+ Reducer2     | 17.4080325 | 78.4489493 | banjara hills
+
+Reducer1 17.3959393 78.431217 Mehdipatnam
+
+update reducer set latitude=17.3959393,longitude=78.431217 where reducer_name='Reducer1';
+
+back to pangagutta
+
+update reducer set latitude=17.4293823,longitude=78.4507862 where reducer_name='Reducer1';

@@ -1,0 +1,5 @@
+create database mapreduce;
+use mapreduce;
+create table reducer(reducer_name varchar(50),
+latitude double,
+longitude double);
