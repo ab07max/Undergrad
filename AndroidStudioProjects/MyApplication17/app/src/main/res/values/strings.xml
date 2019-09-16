@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_gps_basics_android_example">Map</string>
+</resources>
